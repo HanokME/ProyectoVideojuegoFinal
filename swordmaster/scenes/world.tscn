@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3aphwy4saj0"]
+
+[ext_resource type="PackedScene" uid="uid://c12r845skw55a" path="res://scenes/player.tscn" id="1_hdcfi"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_n7ko4"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_n7ko4")
+
+[node name="Player" parent="." instance=ExtResource("1_hdcfi")]
+position = Vector2(617, 296)
+
+[node name="TimerSpawnEnemy" type="Timer" parent="."]
