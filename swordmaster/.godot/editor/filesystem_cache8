@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739879698
+::res://::1740165756
 icon.svg::CompressedTexture2D::4492142683804995664::1739878987::1739878991::1::::<><>::
 ::res://assets/::1739879617
 cave.png::CompressedTexture2D::5290701199938207606::1739879314::1739879617::1::::<><>::
@@ -269,9 +269,15 @@ Ribbon_Yellow_Connection_Right.png::CompressedTexture2D::5846016055377211437::16
 Ribbon_Yellow_Connection_Right_Pressed.png::CompressedTexture2D::798181146787610654::1671766872::1739879617::1::::<><>::
 Ribbon_Yellow_Connection_Up.png::CompressedTexture2D::5558957755264896096::1671766797::1739879617::1::::<><>::
 Ribbon_Yellow_Connection_Up_Pressed.png::CompressedTexture2D::7575267457544700103::1671767001::1739879617::1::::<><>::
-::res://components/::1739879667
+::res://components/::1739964577
+health_component.gd::GDScript::-1::1739963170::0::1::::HealthComponent<>Node2D<>::
+health_component.tscn::PackedScene::5115493702405096490::1739964577::0::1::::<><>::res://components/health_component.gd
 ::res://music/::1739879100
-::res://scenes/::1739879767
-player.tscn::PackedScene::6654582191763937540::1739879814::0::1::::<><>::
-World.tscn::PackedScene::4971048821463573931::1739879767::0::1::::<><>::
-::res://scripts/::1739879676
+::res://scenes/::1739964577
+enemy.tscn::PackedScene::4761556826940482789::1739964577::0::1::::<><>::res://scripts/enemy.gd<>uid://driqtob804vn1::::res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png<>uid://ce48o0t3l4arq::::res://components/health_component.tscn
+player.tscn::PackedScene::6654582191763937540::1739964577::0::1::::<><>::uid://cqwv21qlrddlm::::res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png<>res://scripts/player.gd<>uid://ce48o0t3l4arq::::res://components/health_component.tscn
+world.tscn::PackedScene::4971048821463573931::1739964577::0::1::::<><>::uid://c12r845skw55a::::res://scenes/player.tscn<>res://scripts/world.gd<>uid://cxx3gnl0lkrov::::res://assets/Tiny Swords/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png
+::res://scripts/::1739963391
+enemy.gd::GDScript::-1::1739963267::0::1::::Enemy<>CharacterBody2D<>::
+player.gd::GDScript::-1::1739963391::0::1::::Player<>CharacterBody2D<>::
+world.gd::GDScript::-1::1739952713::0::1::::<>Node2D<>::

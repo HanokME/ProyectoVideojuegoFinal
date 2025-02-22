@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c12r845skw55a"]
+[gd_scene load_steps=25 format=3 uid="uid://c12r845skw55a"]
 
 [ext_resource type="Texture2D" uid="uid://cqwv21qlrddlm" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_op8pb"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yg2x2"]
+[ext_resource type="PackedScene" uid="uid://ce48o0t3l4arq" path="res://components/health_component.tscn" id="3_oem0l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6g4fv"]
 atlas = ExtResource("1_op8pb")
@@ -150,17 +151,41 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqejh"]
 radius = 17.0294
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0hby"]
+size = Vector2(91, 75)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yg2x2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fn0vn")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.69502
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_lqejh")
 
+[node name="AreaAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+position = Vector2(29.5, 1.5)
+shape = SubResource("RectangleShape2D_s0hby")
+debug_color = Color(0.297118, 0.623191, 0.245534, 0.42)
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" node_paths=PackedStringArray("progress_bar") instance=ExtResource("3_oem0l")]
+progress_bar = NodePath("../../ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -43.0
+offset_top = -59.0
+offset_right = 46.0
+offset_bottom = -50.0
+value = 100.0
+show_percentage = false
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
+[connection signal="body_exited" from="AreaAttack" to="." method="_on_area_attack_body_exited"]

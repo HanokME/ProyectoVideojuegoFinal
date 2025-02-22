@@ -1,7 +1,4 @@
-res://scenes/World.tscn
-res://scenes/player.tscn
 res://scenes/world.tscn
-res://scripts/player.gd
-res://scripts/enemy.gd
+res://scenes/player.tscn
 res://scenes/enemy.tscn
-res://scripts/world.gd
+res://components/health_component.tscn
