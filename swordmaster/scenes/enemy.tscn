@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b83se66ui1jqr"]
+[gd_scene load_steps=31 format=3 uid="uid://b83se66ui1jqr"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_xyhg6"]
 [ext_resource type="Texture2D" uid="uid://driqtob804vn1" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="2_k8lyn"]
@@ -27,6 +27,54 @@ region = Rect2(768, 384, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnlgn"]
 atlas = ExtResource("2_k8lyn")
 region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fkbu"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgnpg"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyfy3"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1a42"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avtkx"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8gnv"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tie0h"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idnc7"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(192, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq7vl"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(384, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8run6"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cj0x"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(768, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igx36"]
+atlas = ExtResource("2_k8lyn")
+region = Rect2(960, 768, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfrfn"]
 atlas = ExtResource("2_k8lyn")
@@ -79,6 +127,52 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7fkbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgnpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyfy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1a42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avtkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8gnv")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tie0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idnc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq7vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8run6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cj0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igx36")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lfrfn")
 }, {
 "duration": 1.0,
@@ -112,10 +206,8 @@ script = ExtResource("1_xyhg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mp61j")
-animation = &"attack"
+animation = &"attack_up"
 autoplay = "run"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 17)
@@ -134,9 +226,9 @@ debug_color = Color(0.303095, 0.626591, 0.105504, 0.42)
 progress_bar = NodePath("../../ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -42.0
+offset_left = -16.0
 offset_top = -44.0
-offset_right = 47.0
+offset_right = 28.0
 offset_bottom = -35.0
 value = 100.0
 show_percentage = false

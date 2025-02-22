@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c12r845skw55a"]
+[gd_scene load_steps=39 format=3 uid="uid://c12r845skw55a"]
 
 [ext_resource type="Texture2D" uid="uid://cqwv21qlrddlm" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_op8pb"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yg2x2"]
@@ -27,6 +27,58 @@ region = Rect2(768, 576, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t12bo"]
 atlas = ExtResource("1_op8pb")
 region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkd45"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(0, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwhnp"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(192, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgykp"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(384, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7mn8"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(576, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87six"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(768, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimyo"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(960, 960, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wafk"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5fe"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(0, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt6qq"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(192, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukwyo"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(384, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x75qm"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(576, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lctre"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(768, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84a5r"]
+atlas = ExtResource("1_op8pb")
+region = Rect2(960, 1152, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yws0"]
 atlas = ExtResource("1_op8pb")
@@ -103,6 +155,55 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vkd45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwhnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgykp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7mn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87six")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vimyo")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wafk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5fe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt6qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukwyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x75qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lctre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84a5r")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6yws0")
 }, {
 "duration": 1.0,
@@ -154,6 +255,9 @@ radius = 17.0294
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0hby"]
 size = Vector2(91, 75)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8lk4"]
+bg_color = Color(0.8, 0.0235294, 0, 0.6)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yg2x2")
 
@@ -179,10 +283,11 @@ debug_color = Color(0.297118, 0.623191, 0.245534, 0.42)
 progress_bar = NodePath("../../ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -43.0
-offset_top = -59.0
-offset_right = 46.0
+offset_left = -53.0
+offset_top = -66.0
+offset_right = 36.0
 offset_bottom = -50.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l8lk4")
 value = 100.0
 show_percentage = false
 

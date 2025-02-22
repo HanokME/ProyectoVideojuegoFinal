@@ -1,9 +1,12 @@
-TileMapLayer
-ProgressBar
-Node2D
 Node
 CollisionShape2D
-Area2D
-Timer
 AnimatedSprite2D
 CharacterBody2D
+StaticBody2D
+Node2D
+TileMap
+TextureRect
+TileMapLayer
+ProgressBar
+Area2D
+Timer

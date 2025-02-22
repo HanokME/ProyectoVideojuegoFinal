@@ -1,4 +1,8 @@
 res://scenes/world.tscn
 res://scenes/player.tscn
 res://scenes/enemy.tscn
-res://components/health_component.tscn
+res://decoraciones/arbol.tscn
+res://character/arquero.tscn
+res://character/pawn.tscn
+res://character/barrel.tscn
+res://character/tnt.tscn
