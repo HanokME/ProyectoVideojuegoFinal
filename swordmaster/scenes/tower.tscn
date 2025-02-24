@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://do5mvs8lla1eq"]
+
+[ext_resource type="Script" path="res://scripts/tower.gd" id="1_5o3wm"]
+[ext_resource type="Texture2D" uid="uid://bcbxm3xh5wlm0" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Destroyed.png" id="1_e65t8"]
+[ext_resource type="Texture2D" uid="uid://cgh7hydnidhrk" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Yellow.png" id="2_iixbn"]
+[ext_resource type="Texture2D" uid="uid://dd22npplwmat8" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Construction.png" id="3_kt0gn"]
+[ext_resource type="PackedScene" uid="uid://ce48o0t3l4arq" path="res://components/health_component.tscn" id="4_hv61u"]
+[ext_resource type="PackedScene" uid="uid://djun8a4akwtaw" path="res://scenes/progress_barEnemy.tscn" id="5_y8g1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_367qs"]
+atlas = ExtResource("1_e65t8")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3u5e"]
+atlas = ExtResource("2_iixbn")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88f3"]
+atlas = ExtResource("3_kt0gn")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bakfv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_367qs")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3u5e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88f3")
+}],
+"loop": true,
+"name": &"under_construction",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phywx"]
+size = Vector2(82, 154)
+
+[node name="tower" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_5o3wm")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bakfv")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_phywx")
+metadata/_edit_lock_ = true
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" node_paths=PackedStringArray("progress_bar") instance=ExtResource("4_hv61u")]
+progress_bar = NodePath("../../ProgressBar")
+
+[node name="ProgressBar" parent="." instance=ExtResource("5_y8g1y")]
+offset_left = -21.0
+offset_top = -94.0
+offset_right = 23.0
+offset_bottom = -85.0

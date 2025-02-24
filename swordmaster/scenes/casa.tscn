@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://kedl5jp8wx8u"]
+
+[ext_resource type="Texture2D" uid="uid://cluswwfe0gilm" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Destroyed.png" id="1_o1wu0"]
+[ext_resource type="Script" path="res://scripts/casa.gd" id="1_ry3r1"]
+[ext_resource type="Texture2D" uid="uid://dfdmlj5l6uyke" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="2_hg22a"]
+[ext_resource type="Texture2D" uid="uid://d2klocyodfp1j" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Construction.png" id="3_g7o58"]
+[ext_resource type="PackedScene" uid="uid://ce48o0t3l4arq" path="res://components/health_component.tscn" id="5_defgk"]
+[ext_resource type="PackedScene" uid="uid://djun8a4akwtaw" path="res://scenes/progress_barEnemy.tscn" id="6_wpqt7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpvtt"]
+atlas = ExtResource("1_o1wu0")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndikf"]
+atlas = ExtResource("2_hg22a")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb4y5"]
+atlas = ExtResource("3_g7o58")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oexw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpvtt")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndikf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb4y5")
+}],
+"loop": true,
+"name": &"under_construction",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5l2g"]
+size = Vector2(76, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4s8p"]
+size = Vector2(87, 98)
+
+[node name="casa" type="CharacterBody2D"]
+script = ExtResource("1_ry3r1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oexw5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 19.5)
+shape = SubResource("RectangleShape2D_w5l2g")
+
+[node name="AreaAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_t4s8p")
+debug_color = Color(0.183604, 0.622645, 0.458057, 0.42)
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" node_paths=PackedStringArray("progress_bar") instance=ExtResource("5_defgk")]
+progress_bar = NodePath("../../ProgressBar")
+
+[node name="ProgressBar" parent="." instance=ExtResource("6_wpqt7")]
+offset_left = -20.0
+offset_top = -97.0
+offset_right = 24.0
+offset_bottom = -88.0
+
+[connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
+[connection signal="body_exited" from="AreaAttack" to="." method="_on_area_attack_body_exited"]

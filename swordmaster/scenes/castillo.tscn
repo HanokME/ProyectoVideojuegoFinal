@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://lkej2v5gcv4"]
+
+[ext_resource type="Texture2D" uid="uid://buqw4y6jofkib" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Destroyed.png" id="1_ykf8f"]
+[ext_resource type="Texture2D" uid="uid://d2lhcan3var3s" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Yellow.png" id="2_i3w7i"]
+[ext_resource type="Texture2D" uid="uid://0421kv5vawnx" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Construction.png" id="3_efo2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l37bt"]
+atlas = ExtResource("1_ykf8f")
+region = Rect2(0, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxtie"]
+atlas = ExtResource("2_i3w7i")
+region = Rect2(0, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keb5f"]
+atlas = ExtResource("3_efo2c")
+region = Rect2(0, 0, 320, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipm6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l37bt")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxtie")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keb5f")
+}],
+"loop": true,
+"name": &"under_construction",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uvya"]
+size = Vector2(361, 250)
+
+[node name="castillo" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ipm6l")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, 22)
+shape = SubResource("RectangleShape2D_6uvya")

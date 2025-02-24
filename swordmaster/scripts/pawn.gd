@@ -1,12 +1,12 @@
-class_name Enemy extends CharacterBody2D
+class_name Pawn extends CharacterBody2D
 
 var move_speed := 50
 var attack_damage := 33
 var is_attack := false
 var in_attack_player_range = false
 @onready var sprite_animated: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: Player = $"../Player"
 @onready var health_component: HealthComponent = $Components/HealthComponent
+@onready var player: Player = $"../Player"
 
 
 func _ready() -> void:
@@ -32,15 +32,13 @@ func _physics_process(delta: float) -> void:
 func attack():
 	var attack_direction = (player.position - position).normalized()
 	is_attack = true
-	if abs(attack_direction.y) > abs(attack_direction.x):
-		if attack_direction.y > 0:
-			sprite_animated.play("attack_down")
-		else:
-			sprite_animated.play("attack_up")
+
+	if attack_direction.y < 0:
+		sprite_animated.play("attack_up")
 	else:
 		sprite_animated.play("attack")
-		sprite_animated.flip_h = attack_direction.x < 0
-		$AreaAttack.scale.x = -1 if attack_direction.x < 0 else 1
+	sprite_animated.flip_h = attack_direction.x < 0
+	$AreaAttack.scale.x = -1 if attack_direction.x < 0 else 1
 	
 	
 func verify_receive_damage():

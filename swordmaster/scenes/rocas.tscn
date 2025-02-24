@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=4 uid="uid://ygfgttmgh87b"]
+
+[ext_resource type="Texture2D" uid="uid://cl6l00ewq7a6c" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_01.png" id="1_meulm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsw3f"]
+texture = ExtResource("1_meulm")
+texture_region_size = Vector2i(128, 128)
+3:3/0 = 0
+4:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+34:3/0 = 0
+35:3/0 = 0
+36:3/0 = 0
+42:3/0 = 0
+43:3/0 = 0
+44:3/0 = 0
+50:3/0 = 0
+51:3/0 = 0
+52:3/0 = 0
+59:3/0 = 0
+60:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+28:4/0 = 0
+34:4/0 = 0
+35:4/0 = 0
+36:4/0 = 0
+42:4/0 = 0
+43:4/0 = 0
+44:4/0 = 0
+50:4/0 = 0
+51:4/0 = 0
+52:4/0 = 0
+59:4/0 = 0
+60:4/0 = 0
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rnxee"]
+sources/0 = SubResource("TileSetAtlasSource_jsw3f")
+
+[node name="rocas" type="TileMapLayer"]
+position = Vector2(-180, -195)
+tile_map_data = PackedByteArray("AAARAP3/AAAAAAAAAAAlAAMAAAAAAAAAAABkABsAAAAAAAAAAABkACAAAAAAAAAAAABkACkAAAAAAAAAAABkADAAAAAAAAAAAABkADYAAAAAAAAAAABkAD0AAAAAAAAAAAB5ADsAAAAAAAAAAAB4AEYAAAAAAAAAAABvAE8AAAAAAAAAAABiAFYAAAAAAAAAAABJAFwAAAAAAAAAAABDAEwAAAAAAAAAAAAtAFIAAAAAAAAAAAAuAFsAAAAAAAAAAAAIAFUAAAAAAAAAAAD7/0YAAAAAAAAAAAD6/zEAAAAAAAAAAAAPACYAAAAAAAAAAAANAB4AAAAAAAAAAAAJAP//AAAAAAAAAAAFAAsAAAAAAAAAAAAAABcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rnxee")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://c12r845skw55a"]
+[gd_scene load_steps=38 format=3 uid="uid://c12r845skw55a"]
 
 [ext_resource type="Texture2D" uid="uid://cqwv21qlrddlm" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_op8pb"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yg2x2"]
 [ext_resource type="PackedScene" uid="uid://ce48o0t3l4arq" path="res://components/health_component.tscn" id="3_oem0l"]
+[ext_resource type="PackedScene" uid="uid://bvxu3c2mdpxhg" path="res://scenes/progress_bar.tscn" id="4_x55jo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6g4fv"]
 atlas = ExtResource("1_op8pb")
@@ -52,33 +53,29 @@ region = Rect2(768, 960, 192, 192)
 atlas = ExtResource("1_op8pb")
 region = Rect2(960, 960, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wafk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro7ny"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(192, 192, 192, 192)
+region = Rect2(0, 1344, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dg5fe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xky8"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(0, 1152, 192, 192)
+region = Rect2(192, 1344, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wt6qq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6egpa"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(192, 1152, 192, 192)
+region = Rect2(384, 1344, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukwyo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2pol"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(384, 1152, 192, 192)
+region = Rect2(576, 1344, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x75qm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_txix8"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(576, 1152, 192, 192)
+region = Rect2(768, 1344, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lctre"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnghu"]
 atlas = ExtResource("1_op8pb")
-region = Rect2(768, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_84a5r"]
-atlas = ExtResource("1_op8pb")
-region = Rect2(960, 1152, 192, 192)
+region = Rect2(960, 1344, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yws0"]
 atlas = ExtResource("1_op8pb")
@@ -178,25 +175,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7wafk")
+"texture": SubResource("AtlasTexture_ro7ny")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dg5fe")
+"texture": SubResource("AtlasTexture_3xky8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wt6qq")
+"texture": SubResource("AtlasTexture_6egpa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ukwyo")
+"texture": SubResource("AtlasTexture_o2pol")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x75qm")
+"texture": SubResource("AtlasTexture_txix8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lctre")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_84a5r")
+"texture": SubResource("AtlasTexture_bnghu")
 }],
 "loop": false,
 "name": &"attack_up",
@@ -255,16 +249,15 @@ radius = 17.0294
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0hby"]
 size = Vector2(91, 75)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8lk4"]
-bg_color = Color(0.8, 0.0235294, 0, 0.6)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yg2x2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fn0vn")
-animation = &"attack"
+animation = &"attack_up"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
@@ -282,14 +275,9 @@ debug_color = Color(0.297118, 0.623191, 0.245534, 0.42)
 [node name="HealthComponent" parent="Components" node_paths=PackedStringArray("progress_bar") instance=ExtResource("3_oem0l")]
 progress_bar = NodePath("../../ProgressBar")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -53.0
-offset_top = -66.0
-offset_right = 36.0
-offset_bottom = -50.0
-theme_override_styles/background = SubResource("StyleBoxFlat_l8lk4")
-value = 100.0
-show_percentage = false
+[node name="ProgressBar" parent="." instance=ExtResource("4_x55jo")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
