@@ -29,3 +29,4 @@ func apply_health(amount: int):
 func on_death():
 	death.emit()
 	
+	

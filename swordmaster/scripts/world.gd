@@ -4,6 +4,10 @@ extends Node2D
 const ENEMY = preload("res://scenes/enemy.tscn")
 const PAWN = preload("res://scenes/pawn.tscn")
 const TOWER = preload("res://scenes/tower.tscn")
+const WORLD_2 = preload("res://scenes/world2.tscn")
+
+var torres_destruidas = 0
+var casas_destruidas = 0
 
 var time_spawn_enemy := 10
 @onready var player: Player = $Player
@@ -21,7 +25,6 @@ func _ready() -> void:
 func spawn_enemy():
 	var enemy = ENEMY.instantiate()
 	var pawn = PAWN.instantiate()
-	var tower = TOWER.instantiate()
 
 	# Generando un ángulo aleatorio en radianes
 	var random_angle_enemy: float = randf() * PI * 2
@@ -44,8 +47,19 @@ func spawn_enemy():
 
 	add_child(enemy)
 	add_child(pawn)
-	add_child(tower)
 
 # Esta función es llamada cuando el enemigo muere
 func on_death():
 	queue_free()  # Libera el nodo cuando muere
+	
+func _on_tower_destroyed():
+	torres_destruidas += 1 
+	check_victory_condition()
+func _on_casa_destroyed():
+	casas_destruidas += 1 
+	check_victory_condition()
+	
+func check_victory_condition():
+	if torres_destruidas >= 5 and casas_destruidas >= 3:
+		get_tree().change_scene_to_file("res://scenes/world2.tscn")
+		

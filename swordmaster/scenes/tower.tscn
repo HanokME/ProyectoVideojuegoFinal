@@ -59,6 +59,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 17)
 shape = SubResource("RectangleShape2D_phywx")
 metadata/_edit_lock_ = true

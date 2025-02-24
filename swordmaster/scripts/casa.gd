@@ -22,10 +22,8 @@ func on_death():
 	sprite_animated.play("destroyed")
 	in_attack_player_range = false
 	set_physics_process(false)
+	get_parent()._on_casa_destroyed()
 	
-	
-
-
 func _on_area_attack_body_entered(body: Node2D) -> void:
 	if body is Player:
 		in_attack_player_range = true

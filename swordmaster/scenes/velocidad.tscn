@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://kuu8d3yrvjsn"]
+
+[ext_resource type="Texture2D" uid="uid://01vv1vararm5" path="res://assets/platformer items - free assets/platformer items - free assets/animated_items.png" id="1_iqvrx"]
+[ext_resource type="Script" path="res://scripts/velocidad.gd" id="1_jj3s1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlieb"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epriy"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(32, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb70u"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(64, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npxgx"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(96, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga1aa"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(128, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14e7i"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(160, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcbxm"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(192, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5ekg"]
+atlas = ExtResource("1_iqvrx")
+region = Rect2(224, 320, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgsab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlieb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epriy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb70u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npxgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga1aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14e7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcbxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5ekg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfggd"]
+radius = 6.66667
+
+[node name="Velocidad" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_jj3s1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hgsab")
+autoplay = "default"
+frame_progress = 0.0391024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1.33333)
+shape = SubResource("CircleShape2D_vfggd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

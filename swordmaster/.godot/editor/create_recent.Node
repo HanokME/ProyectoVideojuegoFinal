@@ -1,14 +1,14 @@
 CollisionShape2D
+AnimatedSprite2D
 Area2D
+Marker2D
+CollisionPolygon2D
 CharacterBody2D
 Node
 Button
-Marker2D
 NavigationAgent2D
 ProgressBar
 TileMapLayer
-AnimatedSprite2D
 StaticBody2D
 Sprite2D
 Node2D
-Camera2D

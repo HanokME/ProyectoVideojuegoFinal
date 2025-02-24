@@ -6,8 +6,15 @@ signal attack_finished
 @onready var health_component: HealthComponent = $Components/HealthComponent
 @onready var tileMap: TileMapLayer
 
+#velocidad power up
+var original_speed: float
+var speed_boost_active := false
 
+#damage power up
+var original_attack_damage: float
+var damage_boost_active := false
 
+#Variables principales
 var move_speed := 100
 var stair_speed := 75
 var attack_damage := 60
@@ -103,8 +110,31 @@ func get_tile_name() -> String:
 
 	if tile_data:
 		var tile_name = tile_data.get_custom_data("tileName")  # Obtener el nombre del tile
-		print("✅ Tile detectado:", tile_name)
+		
 		return tile_name
 
-	print("⚠️ No se encontró tileData en", tile_pos)
-	return ""	
+	
+	return ""
+
+
+func apply_speed_boost(multiplier: float, duration: float) -> void:
+	if !speed_boost_active:
+		speed_boost_active = true
+		original_speed = move_speed
+		move_speed *= multiplier
+
+		# Crear un temporizador para revertir el efecto después de `duration` segundos
+		await get_tree().create_timer(duration).timeout
+		move_speed = original_speed
+		speed_boost_active = false
+		
+func apply_damage_boost(multiplier: float, duration: float) -> void:
+	if !damage_boost_active:
+		damage_boost_active = true
+		original_attack_damage = attack_damage
+		attack_damage *= multiplier
+
+		# Crear un temporizador para revertir el efecto después de `duration` segundos
+		await get_tree().create_timer(duration).timeout
+		attack_damage = original_attack_damage
+		damage_boost_active = false
