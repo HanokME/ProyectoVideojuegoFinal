@@ -20,3 +20,11 @@ res://scripts/velocidad.gd
 res://scenes/damage.tscn
 res://scripts/daño.gd
 res://scripts/damage.gd
+res://scenes/menu_principal.tscn
+res://scripts/menu_principal.gd
+res://scenes/menu_options.tscn
+res://scripts/menu_options.gd
+res://scenes/menu_derrota.tscn
+res://scripts/menu_derrota.gd
+res://scenes/menu_victoria.tscn
+res://scripts/menu_victoria.gd

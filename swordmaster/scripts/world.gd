@@ -12,6 +12,7 @@ var casas_destruidas = 0
 var time_spawn_enemy := 10
 @onready var player: Player = $Player
 @onready var timer_spawn_enemy: Timer = $TimerSpawnEnemy
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 

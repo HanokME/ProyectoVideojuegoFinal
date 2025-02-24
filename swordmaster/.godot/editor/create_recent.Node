@@ -1,3 +1,10 @@
+AudioStreamPlayer2D
+OptionButton
+HSlider
+Label
+Panel
+VBoxContainer
+Button
 CollisionShape2D
 AnimatedSprite2D
 Area2D
@@ -5,10 +12,3 @@ Marker2D
 CollisionPolygon2D
 CharacterBody2D
 Node
-Button
-NavigationAgent2D
-ProgressBar
-TileMapLayer
-StaticBody2D
-Sprite2D
-Node2D

@@ -73,7 +73,7 @@ func attack():
 		
 
 func on_death():
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://scenes/menu_derrota.tscn")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite_animation.animation == "attack" or sprite_animation.animation == "attack_up" or sprite_animation.animation == "attack_down":

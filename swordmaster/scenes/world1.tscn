@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cc3aphwy4saj0"]
+[gd_scene load_steps=40 format=4 uid="uid://cc3aphwy4saj0"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_vyjc4"]
 [ext_resource type="Texture2D" uid="uid://dgxsuw05njhnv" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/Terrain/Water/Water.png" id="2_p8xy4"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://kuu8d3yrvjsn" path="res://scenes/velocidad.tscn" id="26_rasom"]
 [ext_resource type="PackedScene" uid="uid://kedl5jp8wx8u" path="res://scenes/casa.tscn" id="26_sn7ld"]
 [ext_resource type="PackedScene" uid="uid://ccopp65rtuvlx" path="res://scenes/damage.tscn" id="27_75gjy"]
+[ext_resource type="AudioStream" uid="uid://c7852p71s4ex0" path="res://music/friendly-town-fun-video-game-music-loop-256055.mp3" id="28_bkdv8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6ydg"]
 texture = ExtResource("3_3fwvb")
@@ -4318,3 +4319,7 @@ position = Vector2(-192, -154)
 build_mode = 1
 polygon = PackedVector2Array(0, -1, 147, 37, 146, 150, 274, 158, 277, 264, 417, 271, 417, 513, 371, 515, 368, 745, 79, 747, 87, 860, 206, 863, 214, 791, 350, 794, 358, 888, 415, 890, 420, 764, 593, 767, 601, 844, 706, 845, 709, 1079, 627, 1079, 617, 1058, 449, 1063, 449, 1223, 617, 1226, 622, 1123, 785, 1129, 768, 1069, 769, 845, 946, 853, 944, 937, 1220, 944, 1219, 1137, 1198, 1145, 1204, 1291, 1374, 1288, 1373, 1141, 1282, 1141, 1282, 936, 1336, 941, 1347, 877, 1484, 877, 1487, 688, 1377, 693, 1377, 587, 1698, 583, 1702, 606, 1837, 604, 1832, 455, 1702, 452, 1699, 526, 1378, 534, 1380, 494, 1481, 491, 1488, 283, 1577, 280, 1582, 55, 1233, 53, 1230, -28, 718, -26, 707, 47, 291, 52, 279, 31, 168, 32, 71, -20)
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_bkdv8")
+autoplay = true

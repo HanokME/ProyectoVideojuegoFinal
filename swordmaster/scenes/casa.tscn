@@ -61,10 +61,12 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 19.5)
 shape = SubResource("RectangleShape2D_w5l2g")
 
 [node name="AreaAttack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
 position = Vector2(-0.5, 16)

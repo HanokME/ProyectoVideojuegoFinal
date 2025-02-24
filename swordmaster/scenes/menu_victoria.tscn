@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://bucv7u108tdxu"]
+
+[ext_resource type="Script" path="res://scripts/menu_victoria.gd" id="1_3pduh"]
+[ext_resource type="Texture2D" uid="uid://dl0suwxmqcy3" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Hover_9Slides.png" id="2_wh2yj"]
+[ext_resource type="FontFile" uid="uid://cmfqd0gy2i7gx" path="res://assets/medieval_sharp/MedievalSharp-Bold.ttf" id="3_7betm"]
+[ext_resource type="Texture2D" uid="uid://10gn0klx4ao7" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="4_ovy8o"]
+[ext_resource type="Texture2D" uid="uid://qp4omc1gka6v" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_tveab"]
+[ext_resource type="Texture2D" uid="uid://feoyi3c1qgyj" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Hover_3Slides.png" id="5_f5ama"]
+[ext_resource type="AudioStream" uid="uid://f27dmc4w4quh" path="res://music/puzzle-game-loop-bright-casual-video-game-music-249201.mp3" id="7_178ae"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kvb8"]
+texture = ExtResource("2_wh2yj")
+texture_margin_right = 1.0
+expand_margin_left = 35.0
+expand_margin_top = 20.0
+expand_margin_right = 35.0
+expand_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo7ul"]
+texture = ExtResource("4_ovy8o")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvy1t"]
+texture = ExtResource("5_f5ama")
+expand_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2b0w"]
+texture = ExtResource("4_tveab")
+expand_margin_bottom = 11.0
+
+[node name="MenuVictoria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3pduh")
+
+[node name="Background" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8kvb8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -77.0
+offset_right = 59.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ButtonRerun" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.713726, 0.498039, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("3_7betm")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_eo7ul")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "RERUN"
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.713726, 0.498039, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("3_7betm")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_w2b0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "EXIT"
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -282.0
+offset_top = 144.0
+offset_right = 328.0
+offset_bottom = 241.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.713726, 0.498039, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("3_7betm")
+theme_override_font_sizes/font_size = 80
+text = "HAS GANADO??"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_178ae")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/ButtonRerun" to="." method="_on_button_rerun_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

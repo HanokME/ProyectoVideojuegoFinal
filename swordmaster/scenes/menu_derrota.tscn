@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://iy80tey36pf0"]
+
+[ext_resource type="Script" path="res://scripts/menu_derrota.gd" id="1_eewnp"]
+[ext_resource type="Texture2D" uid="uid://klthukk3y6dn" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_9Slides_Pressed.png" id="2_oyybs"]
+[ext_resource type="FontFile" uid="uid://cmfqd0gy2i7gx" path="res://assets/medieval_sharp/MedievalSharp-Bold.ttf" id="3_yru1u"]
+[ext_resource type="Texture2D" uid="uid://qp4omc1gka6v" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_3pw7e"]
+[ext_resource type="Texture2D" uid="uid://daki3avef6awp" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Disable_3Slides.png" id="5_65w6l"]
+[ext_resource type="AudioStream" uid="uid://f27dmc4w4quh" path="res://music/puzzle-game-loop-bright-casual-video-game-music-249201.mp3" id="6_14o1l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kvb8"]
+texture = ExtResource("2_oyybs")
+texture_margin_right = 1.0
+expand_margin_left = 35.0
+expand_margin_top = 20.0
+expand_margin_right = 35.0
+expand_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo7ul"]
+texture = ExtResource("4_3pw7e")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvy1t"]
+texture = ExtResource("5_65w6l")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2b0w"]
+texture = ExtResource("4_3pw7e")
+expand_margin_bottom = 11.0
+
+[node name="MenuDerrota" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eewnp")
+
+[node name="Background" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8kvb8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -77.0
+offset_right = 59.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+alignment = 1
+
+[node name="ButtonRerun" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203551, 0.0683156, 0.0885623, 1)
+theme_override_fonts/font = ExtResource("3_yru1u")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_eo7ul")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "RERUN"
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.203922, 0.0666667, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("3_yru1u")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_w2b0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "EXIT"
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -282.0
+offset_top = 144.0
+offset_right = 328.0
+offset_bottom = 241.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.203922, 0.0666667, 0.0901961, 1)
+theme_override_fonts/font = ExtResource("3_yru1u")
+theme_override_font_sizes/font_size = 80
+text = "HAS PERDIDO!!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_14o1l")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/ButtonRerun" to="." method="_on_button_rerun_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

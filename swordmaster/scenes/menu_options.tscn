@@ -1,0 +1,166 @@
+[gd_scene load_steps=16 format=3 uid="uid://bxj7dr3js4qll"]
+
+[ext_resource type="Script" path="res://scripts/menu_options.gd" id="1_164s7"]
+[ext_resource type="Texture2D" uid="uid://btr51tmnr5ix4" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="2_btf82"]
+[ext_resource type="FontFile" uid="uid://cmfqd0gy2i7gx" path="res://assets/medieval_sharp/MedievalSharp-Bold.ttf" id="3_xsfus"]
+[ext_resource type="Texture2D" uid="uid://qp4omc1gka6v" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_51cui"]
+[ext_resource type="Texture2D" uid="uid://daki3avef6awp" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Disable_3Slides.png" id="5_1avmk"]
+[ext_resource type="Texture2D" uid="uid://s8ljq54hs3o2" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_Pressed.png" id="6_tev01"]
+[ext_resource type="Texture2D" uid="uid://d3mjjpfkt4icv" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Icons/Regular_03.png" id="7_h4ucf"]
+[ext_resource type="Texture2D" uid="uid://c2df5lrjg3xm8" path="res://assets/Tiny Swords/Tiny Swords (Update 010)/UI/Icons/Regular_02.png" id="8_far0d"]
+[ext_resource type="AudioStream" uid="uid://qf4nxaluh6sm" path="res://music/milton-milton-122.mp3" id="9_mofh4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kvb8"]
+texture = ExtResource("2_btf82")
+texture_margin_right = 1.0
+expand_margin_left = 35.0
+expand_margin_top = 20.0
+expand_margin_right = 35.0
+expand_margin_bottom = 35.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo7ul"]
+texture = ExtResource("4_51cui")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvy1t"]
+texture = ExtResource("5_1avmk")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hbk7"]
+texture = ExtResource("4_51cui")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2b0w"]
+texture = ExtResource("4_51cui")
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtwc5"]
+texture = ExtResource("6_tev01")
+modulate_color = Color(1, 1, 1, 0.85098)
+
+[node name="MenuOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_164s7")
+
+[node name="Background" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8kvb8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -105.0
+offset_right = -202.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+alignment = 1
+
+[node name="ButtonVolume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.686275, 0.321569, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_xsfus")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_eo7ul")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "VOLUME"
+
+[node name="ButtonResolution" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.686275, 0.321569, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_xsfus")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_0hbk7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "WINDOW"
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.686275, 0.321569, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_xsfus")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_w2b0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uvy1t")
+text = "EXIT"
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.0
+offset_top = 111.0
+offset_right = 314.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.686275, 0.321569, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_xsfus")
+theme_override_font_sizes/font_size = 80
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelOptions" type="Panel" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 522.0
+offset_top = 207.0
+offset_right = 1232.0
+offset_bottom = 680.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vtwc5")
+
+[node name="SliderVolume" type="HSlider" parent="PanelOptions"]
+visible = false
+layout_mode = 0
+offset_left = 213.0
+offset_top = 164.0
+offset_right = 435.0
+offset_bottom = 219.0
+scale = Vector2(1.5, 1.5)
+value = 100.0
+
+[node name="IconoVolume" type="Sprite2D" parent="PanelOptions"]
+visible = false
+position = Vector2(193, 213)
+texture = ExtResource("7_h4ucf")
+
+[node name="OptionButtonWindow" type="OptionButton" parent="PanelOptions"]
+visible = false
+layout_mode = 0
+offset_left = 255.0
+offset_top = 180.0
+offset_right = 445.0
+offset_bottom = 231.0
+
+[node name="IconoResolution" type="Sprite2D" parent="PanelOptions"]
+visible = false
+position = Vector2(225, 210)
+texture = ExtResource("8_far0d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_mofh4")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/ButtonVolume" to="." method="_on_button_volume_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonResolution" to="." method="_on_button_resolution_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="value_changed" from="PanelOptions/SliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="item_selected" from="PanelOptions/OptionButtonWindow" to="." method="_on_option_button_window_item_selected"]
