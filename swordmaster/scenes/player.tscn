@@ -260,12 +260,15 @@ frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_lqejh")
 
 [node name="AreaAttack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+visible = false
 position = Vector2(29.5, 1.5)
 shape = SubResource("RectangleShape2D_s0hby")
 debug_color = Color(0.297118, 0.623191, 0.245534, 0.42)

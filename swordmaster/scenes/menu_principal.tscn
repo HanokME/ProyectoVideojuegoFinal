@@ -162,6 +162,7 @@ offset_bottom = 724.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_vtwc5")
 
 [node name="LabelObjetivo" type="Label" parent="InfoObjetivo"]
+layout_mode = 0
 offset_left = 99.0
 offset_top = 169.0
 offset_right = 416.0

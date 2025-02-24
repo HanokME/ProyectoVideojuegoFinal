@@ -211,12 +211,15 @@ animation = &"attack_down"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, 17)
 shape = SubResource("CircleShape2D_j5di2")
 
 [node name="AreaAttack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+visible = false
 position = Vector2(14, 14)
 shape = SubResource("RectangleShape2D_nnicg")
 debug_color = Color(0.303095, 0.626591, 0.105504, 0.42)
